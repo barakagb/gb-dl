@@ -4,6 +4,7 @@ A python based utility to download courses from infosec4tc.teachable.com and sta
 To use this script:
 ```
 python gb-dl.py
+Enter course url , email and password when prompted.
 ```
 ## Installation
 ``` 
