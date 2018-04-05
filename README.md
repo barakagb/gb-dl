@@ -5,6 +5,13 @@ To use this script:
 ```
 python gb-dl.py
 ```
+## Installation
+``` 
+git clone https://github.com/barakagb/gb-dl.git 
+then
+pip install -r requirements.txt 
+```
+    
 ## Requirements
 ``` 
     beatifulsoup4
