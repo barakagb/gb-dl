@@ -9,9 +9,8 @@ Enter course url , email and password when prompted.
 ```
 ## Installation
 ``` 
-git clone https://github.com/barakagb/gb-dl.git 
-then
-pip install -r requirements.txt 
+pip install gb-dl
+ 
 ```
     
 ## Requirements
