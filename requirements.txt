@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+youtube-dl
+lxml.html
+wget
+blessings
