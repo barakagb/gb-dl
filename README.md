@@ -24,7 +24,7 @@ pip install gb-dl
     
 ```
 
-Tested on ubuntu 16 LTS
+Tested on ubuntu 18 LTS
 
 ## Example of course url:
 https://stackskills.com/courses/enrolled/68582
