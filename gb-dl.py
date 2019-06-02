@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 import os
 import re
+import wget
 
 import requests,lxml.html
 import sys
@@ -35,9 +36,9 @@ class dl:
 
     def login(self):
 
-        self.course_url         =      raw_input("Enter course url : ")
-        self.email       =      raw_input("Email : ")
-        self.password    =      getpass.getpass(prompt="Password : " , stream=sys.stderr)
+        self.course_url         = raw_input("Enter course url : ")
+        self.email       =   raw_input("Email : ")
+        self.password    =  getpass.getpass(prompt="Password : " , stream=sys.stderr)
 
 
         if self.email and self.password and self.course_url:
@@ -52,6 +53,11 @@ class dl:
                 elif "infosec4tc" in self.course_url:
 
                     login_url = "https://sso.teachable.com/secure/100167/users/sign_in?flow_school_id=100167"
+
+                else:
+                    print t.red("[-] In valid course URL.")
+                    sys.exit(1)
+
 
 
 
@@ -73,11 +79,12 @@ class dl:
 
                 if "Invalid email or password" in response.text:
 
-                    print "[-]" + t.red("Login failed.Invalid username or password.")
+                    print t.red("[-] Login failed.Invalid username or password.")
                     sys.exit(1)
 
                 else:
-                    print "[+]" + t.green("Login succesful.")
+                    print  t.green("[+] Login succesful.")
+
                     self.getSectionAndLinks(self.course_url)
 
 
@@ -85,7 +92,8 @@ class dl:
 
 
             except Exception as e:
-                print "[-]" + t.red("Connection failed.Please check your internet connection and try again!")
+                print  t.red("[-] Connection failed.Please check your internet connection and try again!\n "+ e.message)
+
                 sys.exit(1)
 
 
@@ -93,7 +101,7 @@ class dl:
         else:
 
 
-            print t.red("Please enter course url ,email and password")
+            print t.yellow("[-] Please enter course url , email and password")
             sys.exit(1)
 
 
@@ -103,7 +111,7 @@ class dl:
         self.domain = self.url[0:index]
 
         try:
-
+            print "Downloading to :" + os.getcwd()
             print "Collecting course information ..."
 
             data = requests.get(self.url)
@@ -111,11 +119,22 @@ class dl:
             soup = BeautifulSoup(data.text, 'html.parser')
 
 
+            #courseName = soup.find('h2', attrs={'class': 'row'})
+
+
             courseName = soup.find('h1', attrs={'class': 'course-title'})
+
+            if courseName is None:
+               courseName = soup.find('h1', attrs={'class': 'm-0'})
+
+
             courseName = str(courseName.get_text()).strip()
 
 
-            print "\nCourse name : " + t.cyan(courseName)
+            print "\nCourse name : " + t.bold(t.cyan(str(courseName)))
+
+
+
 
 
 
@@ -131,6 +150,11 @@ class dl:
 
             print "Getting course sections ..."
 
+            data = s.get(self.url)
+
+            soup = BeautifulSoup(data.text, 'html.parser')
+
+
             c = 1
             for i in soup.find_all('span', {'class':'section-lock'}):
                 section = i.next_sibling.strip()
@@ -144,10 +168,14 @@ class dl:
 
 
 
-                print "\nFound Section : " , t.cyan(section) + "\n"
+                print "\n[+] Found Section : " , t.cyan(section) + "\n"
+
+
 
 
                 divs = soup.find_all('div', {'class': 'course-section'}, )
+
+
 
                 for div in divs:
                     links = []
@@ -159,8 +187,13 @@ class dl:
 
                         soupLinks = BeautifulSoup(str(theDiv), 'html.parser')
 
+
                         for i in soupLinks.find_all('a', {'class': 'item'}):
+
+
                             links.append(self.domain+i.attrs['href'])
+
+
 
 
 
@@ -178,10 +211,10 @@ class dl:
 
 
             self.sanitizeFileNames()
-            print t.green("\nDownload completed.")
+            print  t.green("\n[+] Download completed.")
 
         except Exception as e:
-            print t.red("Course not found or You need to purchase course.")
+            print t.red("[-] Error : " +str(e))
 
     def prepareDownload(self,links):
 
@@ -200,8 +233,15 @@ class dl:
 
                 # wistia= soup1.findAll("div", id=lambda x: x and x.startswith('wistia-'))
 
+                _dict  ={}
+                for i in soup1.find_all('a', {'class': 'download'}):
+                    _dict["href"] = i.attrs['href']
+                    _dict["name"] =i.attrs['data-x-origin-download-name']
+                    Attachments.append(_dict)
+
                 for attachment in soup1.findAll('iframe'):
                     Attachments.append(attachment.get('src'))
+
 
 
 
@@ -238,17 +278,33 @@ class dl:
 
 
             except Exception as e:
-                print e
+                print "[-]" + t.red("Error : " + e)
         else:
-            for attachment in attachments:
 
+
+            for attachment in attachments:
                 try:
-                    os.popen("wget " +attachment )
+
+
+
+                    if attachment:
+                        for x in attachment:
+                            self.name = str(x["name"])
+                            self.url = str((x["href"]).strip('[]'))
+                           # self.url = self.url[2:-1].strip()
+
+                        print "Downloading attachment : " + (self.name)
+                        filesrc = wget.download(str(self.url))
+
+
+                        os.rename(filesrc, str(self.name))
+
 
 
 
                 except Exception as e:
-                    print e
+
+                    print "[-]" + t.red("Error can not download attachment  : " + e)
 
     def sanitizeFileNames(self):
         print "sanitizing file names ..."
@@ -284,7 +340,7 @@ class dl:
                  | |__| | |_) |          | (_| | |
                   \_____|____/            \__,_|_|
              
-           			        Version : 0.1
+           			        Version : 1.1
                             Author  : BarakaGB
                             Visit   : https://github.com/barakagb
 
