@@ -275,7 +275,7 @@ class dl:
            			        Version : 1.1.1
                             Author  : BarakaGB
                             Visit   : https://github.com/barakagb
-                            Paypal  : barakagb@gmail.com
+                            Paypal  : barakagb[at]gmail[dot]com
 
                     '''
         print(t.cyan(banner))
