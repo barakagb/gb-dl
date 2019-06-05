@@ -25,9 +25,16 @@ class dl:
 
 
     def login(self):
-        self.course_url  = raw_input("Enter course url : ")
-        self.email       =   raw_input("Email : ")
-        self.password    =  getpass.getpass(prompt="Password : " , stream=sys.stderr)
+        try:
+
+            self.course_url  = raw_input("Enter course url : ")
+            self.email       =   raw_input("Email : ")
+            self.password    =  getpass.getpass(prompt="Password : " , stream=sys.stderr)
+
+        except Exception as e:
+            self.course_url = input("Enter course url : ")
+            self.email = input("Email : ")
+            self.password = getpass.getpass(prompt="Password : ", stream=sys.stderr)
 
         if self.email and self.password and self.course_url:
             try:
@@ -272,10 +279,10 @@ class dl:
                  | |__| | |_) |          | (_| | |
                   \_____|____/            \__,_|_|
              
-           			        Version : 1.1.1
+           			        Version : 1.2.1
                             Author  : BarakaGB
-                            Visit   : https://github.com/barakagb
-                            Paypal  : barakagb[at]gmail[dot]com
+                            Visit   : https://github.com/barakagb/gb-dl
+                   Paypal Donation  : barakagb[at]gmail[dot]com
 
                     '''
         print(t.cyan(banner))
