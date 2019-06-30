@@ -17,9 +17,7 @@ from bs4 import BeautifulSoup
 class DL:
 
     global s
-    global t
 
-    t = Terminal()
     s = requests.session()
 
     def login(self):
