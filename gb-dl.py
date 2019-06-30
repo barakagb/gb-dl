@@ -5,24 +5,22 @@ from __future__ import unicode_literals
 import os
 import re
 import wget
-
 import requests,lxml.html
 import sys
 import getpass
 import youtube_dl
 
 from bs4 import BeautifulSoup
-from blessings import Terminal
 
 
-class dl:
+
+class DL:
 
     global s
     global t
 
     t = Terminal()
     s = requests.session()
-
 
     def login(self):
         try:
@@ -41,7 +39,7 @@ class dl:
 
                 print ("Trying to Login ...")
 
-                if "stackskills"  in self.course_url:
+                if "stackskills" in self.course_url:
 
                     login_url = "https://sso.teachable.com/secure/1453/users/sign_in?flow_school_id=1453"
 
@@ -50,11 +48,8 @@ class dl:
                     login_url = "https://sso.teachable.com/secure/100167/users/sign_in?flow_school_id=100167"
 
                 else:
-                    print (t.red("[-] In valid course URL."))
+                    print ("[-] In valid course URL.")
                     sys.exit(1)
-
-
-
 
                 login = s.get(login_url)
                 login_html = lxml.html.fromstring(login.text)
@@ -66,29 +61,29 @@ class dl:
                 form['user[email]'] = self.email
                 form['user[password]'] = self.password
 
-                response = s.post(login_url,data=form)
+                response = s.post(login_url, data=form)
 
                 if "Invalid email or password" in response.text:
 
-                    print (t.red("[-] Login failed.Invalid username or password."))
+                    print ("[-] Login failed.Invalid username or password.")
                     sys.exit(1)
 
                 else:
-                    print (t.green("[+] Login successful."))
+                    print ("[+] Login successful.")
 
                     self.getSectionAndLinks(self.course_url)
 
             except Exception as e:
-                print (t.red("[-] Connection failed.Please check your internet connection and try again!\n "+ e.message))
+                print ("[-] Connection failed.Please check your internet connection and try again!\n " + e.message)
 
                 sys.exit(1)
 
         else:
 
-            print (t.yellow("[-] Please enter course url , email and password"))
+            print ("[-] Please enter course url , email and password")
             sys.exit(1)
 
-    def getSectionAndLinks(self,url):
+    def getSectionAndLinks(self, url):
         self.url = url
         index = url.index('com') + 3
         self.domain = self.url[0:index]
@@ -104,7 +99,6 @@ class dl:
 
             #courseName = soup.find('h2', attrs={'class': 'row'})
 
-
             courseName = soup.find('h1', attrs={'class': 'course-title'})
 
             if courseName is None:
@@ -112,7 +106,7 @@ class dl:
 
             courseName = str(courseName.get_text()).strip()
 
-            print ("\nCourse name : " + t.bold(t.cyan(str(courseName))))
+            print ("\nCourse name : " + (str(courseName)))
 
             try:
                 os.mkdir(courseName)
@@ -135,10 +129,11 @@ class dl:
                 try:
                     os.mkdir(folder)
                     os.chdir(folder)
+
                 except Exception as e:
                     os.chdir(folder)
 
-                print ("\n[+] Found Section : " , t.cyan(section) + "\n")
+                print ("\n[+] Found Section : " , section + "\n")
 
                 divs = soup.find_all('div', {'class': 'course-section'}, )
 
@@ -165,10 +160,10 @@ class dl:
                 c += 1
 
             self.sanitizeFileNames()
-            print (t.green("\n[+] Download completed.Enjoy your course " + self.email))
+            print ("\n[+] Download completed.Enjoy your course " + self.email)
 
         except Exception as e:
-            print (t.red("[-] Error : " + str(e)))
+            print ("[-] Error : " + str(e))
             sys.exit(1)
 
     def prepareDownload(self,links):
@@ -221,7 +216,7 @@ class dl:
                     ydl.download([course_url])
 
             except Exception as e:
-                print ("[-]" + t.red("Error : " + e))
+                print ("[-]" + "Error : " + e)
         else:
 
             for attachment in attachments:
@@ -240,7 +235,7 @@ class dl:
 
                 except Exception as e:
 
-                    print ("[-]" + t.red("Error can not download attachment  : " + e))
+                    print ("[-]" + "Error can not download attachment  : " + e)
 
     def sanitizeFileNames(self):
 
@@ -267,7 +262,7 @@ class dl:
                             os.rename(filesrc, filedest)
                         except Exception as e:
                             pass
-        print("[+]" + t.green("file name sanitation completed"))
+        print("[+]" + "file name sanitation completed")
 
     def main(self):
         banner = '''  
@@ -285,21 +280,21 @@ class dl:
                    Paypal Donation  : barakagb[at]gmail[dot]com
 
                     '''
-        print(t.cyan(banner))
-        print(t.green('''A python based utility to download courses from infosec4tc.teachable.com and stackskills for personal offline use. \n\n'''))
+        print(banner)
+        print(('''A python based utility to download courses from infosec4tc.teachable.com and stackskills for personal offline use. \n\n'''))
 
         self.login()
 
 
 if __name__ == '__main__':
     try:
-        dl= dl()
-        dl.main()
+        DL= DL()
+        DL.main()
     except KeyboardInterrupt:
         print ("User Interrupted.")
         sys.exit(1)
     except Exception as e:
-        print (t.red(e))
+        print (e)
         sys.exit(1)
 
 
