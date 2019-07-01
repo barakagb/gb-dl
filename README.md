@@ -18,13 +18,12 @@ pip install gb-dl
     beatifulsoup4
     youtube_dl
     wget
-    blessings
     requests
     lxml.html
     
 ```
 
-Tested on ubuntu 16 , 18 LTS
+Tested on ubuntu 16 , 18 LTS , Windows 10
 
 ## Example of course url:
 https://stackskills.com/courses/enrolled/68582
