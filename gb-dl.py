@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 import os
 import re
 import wget
-import requests,lxml.html
+import requests, lxml.html
 import sys
 import getpass
 import youtube_dl
@@ -25,7 +25,7 @@ class DL:
 
             self.course_url  = raw_input("Enter course url : ")
             self.email       =   raw_input("Email : ")
-            self.password    =  getpass.getpass(prompt="Password : " , stream=sys.stderr)
+            self.password    =  getpass.getpass(prompt="Password : ", stream=sys.stderr)
 
         except Exception as e:
             self.course_url = input("Enter course url : ")
@@ -47,7 +47,7 @@ class DL:
 
                 else:
                     print ("[-] In valid course URL.")
-                    sys.exit(1)
+                    self.login()
 
                 login = s.get(login_url)
                 login_html = lxml.html.fromstring(login.text)
@@ -64,7 +64,7 @@ class DL:
                 if "Invalid email or password" in response.text:
 
                     print ("[-] Login failed.Invalid username or password.")
-                    sys.exit(1)
+                    self.login()
 
                 else:
                     print ("[+] Login successful.")
@@ -79,7 +79,7 @@ class DL:
         else:
 
             print ("[-] Please enter course url , email and password")
-            self.main()
+            self.login()
 
     def getSectionAndLinks(self, url):
         self.url = url
@@ -132,25 +132,10 @@ class DL:
                         os.mkdir(folder)
                         os.chdir(folder)
 
-
                 except Exception as e:
-                    invaliChars = ['<','>',':','"','/','|','\\','?','*']
-                    for char in invaliChars:
-                        if char in folder:
-                            folder = folder.replace(char,"")
-                            if os.path.exists(folder):
-                                os.chdir(folder)
-                       
-                       
-                            else:
-                                os.mkdir(folder)
-                                os.chdir(folder)
-                    
+                    self.createAndChangeDir(folder)
 
-
-                print ("\n[+] Found Section : " , section + "\n")
-
-            
+                print ("\n[+] Found Section : ", section + "\n")
 
                 divs = soup.find_all('div', {'class': 'course-section'}, )
 
@@ -179,9 +164,12 @@ class DL:
             self.sanitizeFileNames()
             print ("\n[+] Download completed.Enjoy your course " + self.email)
 
-        except Exception as e:
-            print ("[-] Error : " + str(e))
+        except Exception as ex:
+            print ("[-] Error : " + str(ex))
             sys.exit(1)
+
+
+
 
     def prepareDownload(self,links):
 
@@ -281,6 +269,21 @@ class DL:
                             pass
         print("[+]" + "file name sanitation completed")
 
+    def createAndChangeDir(self, dirName):
+        ''' Creates and changes directory if dir name has invalid chars '''
+
+        invalidChars = ['<', '>', ':', '"', '/', '|', '\\', '?', '*']
+        for char in invalidChars:
+            if char in dirName:
+                dirName = dirName.replace(char, "")
+                if os.path.exists(dirName):
+                    os.chdir(dirName)
+
+                else:
+                    os.mkdir(dirName)
+                    os.chdir(dirName)
+        return
+
     def main(self):
         banner = '''  
                               
@@ -291,14 +294,13 @@ class DL:
                  | |__| | |_) |          | (_| | |
                   \_____|____/            \__,_|_|
              
-           			        Version : 1.2.1
+           			        Version : 1.2.4
                             Author  : BarakaGB
                             Visit   : https://github.com/barakagb/gb-dl
                    Paypal Donation  : barakagb[at]gmail[dot]com
-
                     '''
         print(banner)
-        print(('''A python based utility to download courses from infosec4tc.teachable.com and stackskills for personal offline use. \n\n'''))
+        print('''A python based utility to download courses from infosec4tc.teachable.com and stackskills for personal offline use. \n\n''')
 
         self.login()
 
@@ -312,10 +314,4 @@ if __name__ == '__main__':
         sys.exit(1)
     except Exception as e:
         print (e)
-        sys.exit(1)
-
-
-
-
-
-
+sys.exit(1)
