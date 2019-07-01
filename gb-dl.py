@@ -79,7 +79,7 @@ class DL:
         else:
 
             print ("[-] Please enter course url , email and password")
-            sys.exit(1)
+            self.main()
 
     def getSectionAndLinks(self, url):
         self.url = url
@@ -125,13 +125,32 @@ class DL:
                 folder = str(c) + "." + str(section).strip()
 
                 try:
-                    os.mkdir(folder)
-                    os.chdir(folder)
+                    if os.path.exists(folder):
+                       
+                        os.chdir(folder)
+                    else:
+                        os.mkdir(folder)
+                        os.chdir(folder)
+
 
                 except Exception as e:
-                    os.chdir(folder)
+                    invaliChars = ['<','>',':','"','/','|','\\','?','*']
+                    for char in invaliChars:
+                        if char in folder:
+                            folder = folder.replace(char,"")
+                            if os.path.exists(folder):
+                                os.chdir(folder)
+                       
+                       
+                            else:
+                                os.mkdir(folder)
+                                os.chdir(folder)
+                    
+
 
                 print ("\n[+] Found Section : " , section + "\n")
+
+            
 
                 divs = soup.find_all('div', {'class': 'course-section'}, )
 
@@ -294,7 +313,6 @@ if __name__ == '__main__':
     except Exception as e:
         print (e)
         sys.exit(1)
-
 
 
 
