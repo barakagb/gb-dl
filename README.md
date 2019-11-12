@@ -1,5 +1,5 @@
 # GB-DL
-A python based utility to download courses from infosec4tc.teachable.com , academy.ehacking.net and stackskills.com for personal offline use.
+A python based utility to download courses from infosec4tc.teachable.com ,ehacking.net ,stackskills.com and designerup.co for personal offline use.
 
 ## Usage
 To use this script:
