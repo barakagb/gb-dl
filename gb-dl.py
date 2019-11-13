@@ -341,7 +341,7 @@ class DL:
                  | |__| | |_) |          | (_| | |
                   \_____|____/            \__,_|_|
              
-           			        Version : 1.3.1a
+           			        Version : 1.3.2
                             Author  : BarakaGB
                             Visit   : https://github.com/barakagb/gb-dl
                    Paypal Donation  : barakagb[at]gmail[dot]com
