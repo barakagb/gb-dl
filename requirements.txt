@@ -1,6 +1,6 @@
 requests
 beautifulsoup4
 youtube-dl
-lxml.html
+lxml
 wget
 blessings
