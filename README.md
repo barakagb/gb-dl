@@ -1,4 +1,4 @@
-# GB-DL
+# gb-dl
 A python based utility to download courses from infosec4tc.teachable.com ,ehacking.net ,stackskills.com and designerup.co for personal offline use.
 
 ## Usage
@@ -19,7 +19,7 @@ pip install gb-dl
     youtube_dl
     wget
     requests
-    lxml.html
+    lxml
     
 ```
 
