@@ -15,11 +15,10 @@ pip install gb-dl
     
 ## Requirements
 ``` 
-    beatifulsoup4
+  
     youtube_dl
     wget
-    requests
-    lxml
+   
     
 ```
 
