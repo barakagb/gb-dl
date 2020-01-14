@@ -4,23 +4,15 @@ A python based utility to download courses from infosec4tc.teachable.com ,ehacki
 ## Usage
 To use this script:
 ```
-gb-dl.py
+open terminal or cmd and run gb-dl
 Enter course url , email and password when prompted.
 ```
 ## Installation
 ``` 
-pip install gb-dl
+https://bmc.xyz/l/gbdl 
  
 ```
     
-## Requirements
-``` 
-  
-    youtube_dl
-    wget
-   
-    
-```
 
 Tested on ubuntu 16 , 18 LTS , Windows 10
 
