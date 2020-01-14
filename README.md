@@ -12,6 +12,9 @@ Enter course url , email and password when prompted.
 https://bmc.xyz/l/gbdl 
  
 ```
+
+## Issues
+Report all issues here in github
     
 
 Tested on ubuntu 16 , 18 LTS , Windows 10
