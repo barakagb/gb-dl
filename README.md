@@ -1,15 +1,20 @@
 # gb-dl
-A python based utility to download courses from infosec4tc.teachable.com ,ehacking.net ,stackskills.com and designerup.co for personal offline use.
+A python based utility to download courses from infosec4tc.teachable.com ,ehacking.net ,stackskills.com and designerup.co ...etc for personal offline use.
 
 ## Usage
 To use this script:
 ```
 open terminal or cmd and run gb-dl
-Enter course url , email and password when prompted.
+Enter course url , email and password when prompted. OR
+run gb-dl -f FILE to load multiple course urls from files
+run gb-dl -h for help
 ```
 ## Installation
 ``` 
-https://bmc.xyz/l/gbdl 
+pip install gb-dl
+
+Then get your key here : https://bmc.xyz/l/gbdl 
+N.B key will be sent to your email.
  
 ```
 
