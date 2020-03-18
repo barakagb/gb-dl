@@ -29,6 +29,8 @@ Tested on ubuntu 16 , 18 LTS , Windows 10
 https://stackskills.com/courses/enrolled/68582
 
 ```
+##Change Log
+```Added cookie authentication ```
 
 ## Support
  Support future development
