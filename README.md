@@ -1,6 +1,8 @@
 # gb-dl
 A python based utility to download courses from infosec4tc.teachable.com ,ehacking.net ,stackskills.com and designerup.co ...etc for personal offline use.
 
+
+
 ## Usage
 To use this script:
 ```
@@ -29,10 +31,14 @@ Tested on ubuntu 16 , 18 LTS , Windows 10
 https://stackskills.com/courses/enrolled/68582
 
 ```
-##Change Log
-```Added cookie authentication ```
+## Change Log:
+```
+ Added cookie authentication 
+ Downloading multiple courses from a file
+   
+```
 
 ## Support
  Support future development
 <br>
-<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 27px !important;width: 106px !important;" ></a>
+<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 12px !important;width: 56px !important;" ></a>
