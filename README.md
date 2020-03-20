@@ -6,7 +6,7 @@ A python based utility to download courses from infosec4tc.teachable.com ,ehacki
 ## Usage
 To use this script:
 ```
-open terminal or cmd and run gb-dl
+open terminal or cmd and run gb-dl.py
 Enter course url , email and password when prompted. OR
 run gb-dl -f FILE to load multiple course urls from files
 run gb-dl -h for help
