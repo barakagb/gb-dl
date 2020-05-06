@@ -33,6 +33,9 @@ https://stackskills.com/courses/enrolled/68582
 ```
 ## Change Log:
 ```
+ Download only a specified section of the course
+ Download only specified range of sections
+ Show course info without downloading
  Added cookie authentication 
  Downloading multiple courses from a file
    
@@ -41,4 +44,4 @@ https://stackskills.com/courses/enrolled/68582
 ## Support
  Support future development
 <br>
-<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 12px !important;width: 56px !important;" ></a>
+<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 8px !important;width: 13px !important;" ></a>
