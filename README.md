@@ -38,10 +38,12 @@ https://stackskills.com/courses/enrolled/68582
  Show course info without downloading
  Added cookie authentication 
  Downloading multiple courses from a file
+ Load cookie from a text file
+ 
    
 ```
 
 ## Support
  Support future development
 <br>
-<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 8px !important;width: 13px !important;" ></a>
+<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 12px !important;width: 56px !important;" ></a>
