@@ -20,6 +20,9 @@ N.B key will be sent to your email.
  
 ```
 
+## Version
+``` 1.6.5```
+
 ## Issues
 Report all issues here in github
     
@@ -39,6 +42,8 @@ https://stackskills.com/courses/enrolled/68582
  Added cookie authentication 
  Downloading multiple courses from a file
  Load cookie from a text file
+ Store cookie for future use
+ Auto load/detect stored cookie 
  
    
 ```
