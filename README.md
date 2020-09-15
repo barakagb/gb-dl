@@ -11,6 +11,14 @@ Enter course url , email and password when prompted. OR
 run gb-dl -f FILE to load multiple course urls from files
 run gb-dl -h for help
 ```
+
+## How to login with cookie
+```
+The cookie txt file should only contain the cookie value 
+e.g nf54368b02bubc59f7ca935927b9fa94
+```
+
+
 ## Installation
 ``` 
 pip install gb-dl
