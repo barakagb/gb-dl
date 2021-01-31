@@ -1,4 +1,4 @@
-__version__ = "1.6.5"
+__version__ = "1.6.9"
 banner = '''  
 
                    _____ ____                 _ _ 
@@ -20,4 +20,4 @@ print(
     ehacking.net ,stackskills.com and designerup.co ...etc for personal offline 
     use.
      \n''')
-print('''  Please run install and run gb-dl.py from pypi not this file   \n    ''')
+print('''  Please run install and run gb-dl.py from pypi not this file   \n  pip install gb-dl  ''')
