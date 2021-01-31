@@ -21,7 +21,7 @@ N.B key will be sent to your email.
 ```
 
 ## Version
-``` 1.6.8```
+``` 1.6.9```
 
 ## Issues
 Report all issues here in github
@@ -43,7 +43,8 @@ https://stackskills.com/courses/enrolled/68582
  Downloading multiple courses from a file
  Load cookie from a text file
  Store cookie for future use
- Auto load/detect stored cookie 
+ Auto load/detect stored cookie
+ Auto load cookie from browser (firefox)
  
    
 ```
@@ -52,3 +53,4 @@ https://stackskills.com/courses/enrolled/68582
  Support future development
 <br>
 <a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 12px !important;width: 56px !important;" ></a>
+
