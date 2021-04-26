@@ -21,7 +21,7 @@ N.B key will be sent to your email.
 ```
 
 ## Version
-``` 1.7.0```
+``` 1.7.1```
 
 ## Issues
 Report all issues here in github
