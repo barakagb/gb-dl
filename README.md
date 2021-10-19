@@ -21,13 +21,13 @@ N.B key will be sent to your email.
 ```
 
 ## Version
-``` 1.7.1```
+``` 1.7.3X```
 
 ## Issues
 Report all issues here in github
     
 
-Tested on ubuntu 16 , 18 LTS , Windows 10
+Tested on ubuntu 16 , 18,20 LTS , Windows 10
 
 ## Example of course url:
 ```
