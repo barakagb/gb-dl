@@ -52,7 +52,7 @@ https://stackskills.com/courses/enrolled/68582
 ## Support
  Support future development
 <br>
-<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 6px !important;width: 28px !important;" ></a>
+<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 12px !important;width: 36px !important;" ></a>
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V519R40)
