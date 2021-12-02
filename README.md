@@ -21,13 +21,13 @@ N.B key will be sent to your email.
 ```
 
 ## Version
-``` 1.7.3X```
+``` 1.7.3x```
 
 ## Issues
 Report all issues here in github
     
 
-Tested on ubuntu 16 , 18,20 LTS , Windows 10
+Tested on ubuntu 16 , 18 ,20 LTS , Windows 10
 
 ## Example of course url:
 ```
@@ -52,5 +52,7 @@ https://stackskills.com/courses/enrolled/68582
 ## Support
  Support future development
 <br>
-<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 12px !important;width: 56px !important;" ></a>
+<a href="https://www.buymeacoffee.com/barakagb" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" style="height: 6px !important;width: 28px !important;" ></a>
 
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V519R40)
