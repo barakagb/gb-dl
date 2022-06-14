@@ -24,7 +24,7 @@ N.B key will be sent to your email.
 ``` 1.7.3x```
 
 ## Issues
-Report all issues here in github
+Report all issues here in Github
     
 
 Tested on ubuntu 16 , 18 ,20 LTS , Windows 10
@@ -37,14 +37,14 @@ https://stackskills.com/courses/enrolled/68582
 ## Change Log:
 ```
  Download only a specified section of the course
- Download only specified range of sections
+ Download an only a specified range of sections
  Show course info without downloading
  Added cookie authentication 
  Downloading multiple courses from a file
  Load cookie from a text file
- Store cookie for future use
+ Store cookies for future use
  Auto load/detect stored cookie
- Auto load cookie from browser (firefox)
+ Auto load cookie from a browser (firefox)
  
    
 ```
@@ -57,3 +57,7 @@ https://stackskills.com/courses/enrolled/68582
 
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V519R40)
+
+## Disclaimer & WARNINGS:
+
+* DRM-protected video streams are being skipped
